@@ -9,7 +9,7 @@ Python 3 is required, that's it. Tested only with Python 3.4.2.
 Simply execute `mcdlsnapshot.py` from the shell.
 
 By default, it will download the latest snapshot into the current working directory and name it `minecraft_server.<VERSION>.jar`.
-You can change the output directory and filename prefix via command-line parameters (see below or use `--help`).
+You can change the output filename via the command-line parameters (see below or use `--help`).
 
 ```
 usage: mcdlsnapshot.py [-h] [-o OUTPUT] [-d DIR] [-p PREFIX]
