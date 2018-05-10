@@ -12,12 +12,14 @@ By default, it will download the latest snapshot into the current working direct
 You can change the output directory and filename prefix via command-line parameters (see below or use `--help`).
 
 ```
-usage: mcdlsnapshot.py [-h] [-d DIR] [-p PREFIX]
+usage: mcdlsnapshot.py [-h] [-o OUTPUT] [-d DIR] [-p PREFIX]
 
 Downloads the latest Minecraft snapshot server.
 
 optional arguments:
   -h, --help            show this help message and exit
+  -o OUTPUT, --output OUTPUT
+                        the output filename -- overrides -d and -p
   -d DIR, --dir DIR     the output directory
   -p PREFIX, --prefix PREFIX
                         the server filename prefix

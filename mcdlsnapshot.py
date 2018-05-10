@@ -7,6 +7,9 @@ import sys
 
 parser = argparse.ArgumentParser(
     description='Downloads the latest Minecraft snapshot server.')
+parser.add_argument('-o', '--output',
+                    help='the output filename -- overrides -d and -p',
+                    default='')
 parser.add_argument('-d', '--dir',
                     help='the output directory',
                     default='.')
@@ -33,7 +36,12 @@ for version in manifest['versions']:
         server_size = int(meta['downloads']['server']['size'])
         print('Downloading: ' + server_url)
 
-        server_filename = os.path.join(args.dir, args.prefix + latest + '.jar')
+        if args.output:
+            server_filename = args.output
+        else:
+            server_filename = os.path.join(
+                args.dir, args.prefix + latest + '.jar')
+
         urllib.request.urlretrieve(
             server_url,
             server_filename)
