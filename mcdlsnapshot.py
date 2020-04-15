@@ -21,6 +21,9 @@ parser.add_argument('-d', '--dir',
 parser.add_argument('-p', '--prefix',
                     help='the server filename prefix',
                     default='minecraft_server.')
+parser.add_argument('-m', '--mapping',
+                    action='store_true',
+                    help='download the server obfuscation mapping file')
 parser.add_argument('-s', '--silent',
                     action='store_true',
                     help='silent mode - print filename only, and only if new version was downloaded')
@@ -60,6 +63,12 @@ for version in manifest['versions']:
             server_filename)
 
         if sha1(server_filename) == server_hash:
+            if args.mapping:
+                mapping_filename = server_filename[:-4] + '.mapping.txt'
+                mapping_url = meta['downloads']['server_mappings']['url']
+                if not args.silent: print('Downloading: ' + mapping_url)
+                urllib.request.urlretrieve(mapping_url, mapping_filename)
+        
             print(server_filename)
             sys.exit(0)
         else:
