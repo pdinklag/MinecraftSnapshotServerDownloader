@@ -12,7 +12,7 @@ By default, it will download the latest snapshot into the current working direct
 You can change the output filename via the command-line parameters (see below or use `--help`).
 
 ```
-usage: mcdlsnapshot.py [-h] [-o OUTPUT] [-d DIR] [-p PREFIX] [-s]
+usage: mcdlsnapshot.py [-h] [-o OUTPUT] [-d DIR] [-p PREFIX] [-m] [-s]
 
 Downloads the latest Minecraft snapshot server.
 
@@ -23,6 +23,7 @@ optional arguments:
   -d DIR, --dir DIR     the output directory
   -p PREFIX, --prefix PREFIX
                         the server filename prefix
+  -m, --mapping         download the server obfuscation mapping file
   -s, --silent          silent mode - print filename only, and only if new
                         version was downloaded
 ```
