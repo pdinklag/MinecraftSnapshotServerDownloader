@@ -27,6 +27,9 @@ parser.add_argument('-m', '--mapping',
 parser.add_argument('-s', '--silent',
                     action='store_true',
                     help='silent mode - print filename only, and only if new version was downloaded')
+parser.add_argument('--print-always',
+                    action='store_true',
+                    help='always print the filename in silent mode, even if nothing new was downloaded')
 
 args = parser.parse_args()
 
@@ -55,6 +58,7 @@ for version in manifest['versions']:
         if os.path.isfile(server_filename):
             if sha1(server_filename) == server_hash:
                 if not args.silent: print('Nothing to do!')
+                if args.print_always: print(server_filename)
                 sys.exit(0)
 
         if not args.silent: print('Downloading: ' + server_url)
